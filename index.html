@@ -1,79 +1,439 @@
 <!DOCTYPE html>
-<html lang="zh">
-
+<html lang="zh-CN">
 <head>
-    <link rel="shortcut icon" href="./assets/images/favicon.png">
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    
-    <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?c05bb16ea908292af9f6c513087a1cc3";
-      var s = document.getElementsByTagName("script")[0]; 
-      s.parentNode.insertBefore(hm, s);
-    })();
-    </script>
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-8550836177608334",
-        enable_page_level_ads: true
-    });
-    </script>
     <meta charset="UTF-8">
-    <title>WebStack.cc - 设计师网址导航</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>廖国栋的个人博客</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script>
-    if (navigator.appName == "Netscape") {
-        var language = navigator.language;
-    } else {
-        var language = navigator.browserLanguage;
-
-    }
-
-    if (language.indexOf("en") > -1) {
-        document.location.href = "en/index.html";
-    } else if (language.indexOf("zh") > -1) {
-        document.location.href = "cn/index.html";
-    } else {
-        document.location.href = "en/index.html";
-
-    }
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#10b981',
+                        dark: '#1e293b',
+                        light: '#f8fafc'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
     </script>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="viggo" />
-    <title>WebStack.cc - Collection of resources and tools for Designers</title>
-    <meta name="keywords" content="UI设计,UI设计素材,设计导航,网址导航,设计资源,创意导航,创意网站导航,设计师网址大全,设计素材大全,设计师导航,UI设计资源,优秀UI设计欣赏,设计师导航,设计师网址大全,设计师网址导航,产品经理网址导航,UX师网址导航,www.webstack.cc">
-    <meta name="description" content="WebStack - 收集国内外优秀设计网站、UI设计资源网站、灵感创意网站、Resources网站，定时更新分享优质产品设计书签。www.webstack.cc">
-    
-    <!-- / FB Open Graph -->
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="http://www.webstack.cc/">
-    <meta property="og:title" content="WebStack - 收集国内外优秀设计网站、UI设计资源网站、灵感创意网站、Resources网站，定时更新分享优质产品设计书签。www.webstack.cc">
-    <meta property="og:description" content="UI设计,UI设计素材,设计导航,网址导航,设计资源,创意导航,创意网站导航,设计师网址大全,设计素材大全,设计师导航,UI设计资源,优秀UI设计欣赏,设计师导航,设计师网址大全,设计师网址导航,产品经理网址导航,UX师网址导航,www.webstack.cc">
-    <meta property="og:image" content="http://www.webstack.cc/assets/images/webstack_banner_cn.png">
-    <meta property="og:site_name" content="WebStack - 收集国内外优秀设计网站、UI设计资源网站、灵感创意网站、Resources网站，定时更新分享优质产品设计书签。www.webstack.cc">
-    <!-- / Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="WebStack - 收集国内外优秀设计网站、UI设计资源网站、灵感创意网站、Resources网站，定时更新分享优质产品设计书签。www.webstack.cc">
-    <meta name="twitter:description" content="UI设计,UI设计素材,设计导航,网址导航,设计资源,创意导航,创意网站导航,设计师网址大全,设计素材大全,设计师导航,UI设计资源,优秀UI设计欣赏,设计师导航,设计师网址大全,设计师网址导航,产品经理网址导航,UX师网址导航,www.webstack.cc">
-    <meta name="twitter:image" content="http://www.webstack.cc/assets/images/webstack_banner_cn.png">
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .transition-custom {
+                transition: all 0.3s ease;
+            }
+        }
+    </style>
 </head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <!-- 导航栏 -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-primary flex items-center">
+                <i class="fa fa-book mr-2"></i>
+                <span>国栋的博客</span>
+            </a>
+            
+            <!-- 桌面导航 -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="#" class="font-medium hover:text-primary transition-custom">首页</a>
+                <a href="#articles" class="font-medium hover:text-primary transition-custom">文章</a>
+                <a href="#categories" class="font-medium hover:text-primary transition-custom">分类</a>
+                <a href="#about" class="font-medium hover:text-primary transition-custom">关于我</a>
+            </nav>
+            
+            <!-- 移动端菜单按钮 -->
+            <button id="menu-toggle" class="md:hidden text-gray-600 focus:outline-none">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="#" class="py-2 hover:text-primary transition-custom">首页</a>
+                <a href="#articles" class="py-2 hover:text-primary transition-custom">文章</a>
+                <a href="#categories" class="py-2 hover:text-primary transition-custom">分类</a>
+                <a href="#about" class="py-2 hover:text-primary transition-custom">关于我</a>
+            </div>
+        </div>
+    </header>
 
-<body>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111463289-1"></script>
+    <!-- 英雄区域 -->
+    <section class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-16 md:py-24">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-2/3 mb-8 md:mb-0">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-shadow">
+                    你好，我是廖国栋
+                </h1>
+                <p class="text-xl md:text-2xl opacity-90 mb-6">
+                    中国科学技术大学在读学生
+                </p>
+                <p class="text-lg max-w-lg mb-8 opacity-80">
+                    分享我的学习心得、技术笔记和生活感悟，欢迎交流与指正。
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#articles" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-custom">
+                        浏览文章
+                    </a>
+                    <a href="#about" class="bg-transparent border-2 border-white px-6 py-3 rounded-lg font-medium hover:bg-white/10 transition-custom">
+                        了解更多
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/3 flex justify-center">
+                <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                    <img src="https://picsum.photos/seed/profile/300/300" alt="廖国栋的个人照片" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容区域 -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- 最新文章 -->
+        <section id="articles" class="mb-16">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-800">最新文章</h2>
+                <a href="#" class="text-primary hover:text-primary/80 font-medium flex items-center">
+                    查看全部 <i class="fa fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 文章卡片 1 -->
+                <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-custom">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/seed/article1/600/400" alt="Python数据分析入门" class="w-full h-full object-cover hover:scale-105 transition-custom">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full mr-3">技术</span>
+                            <span><i class="fa fa-calendar-o mr-1"></i> 2025-07-15</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 hover:text-primary transition-custom">
+                            <a href="#">Python数据分析入门：从Pandas到可视化</a>
+                        </h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">
+                            本文介绍了Python数据分析的基础知识，包括Pandas库的使用方法，数据清洗技巧以及如何使用Matplotlib和Seaborn进行数据可视化...
+                        </p>
+                        <a href="#" class="inline-flex items-center text-primary font-medium hover:underline">
+                            阅读全文 <i class="fa fa-long-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <!-- 文章卡片 2 -->
+                <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-custom">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/seed/article2/600/400" alt="科大学习生活体验" class="w-full h-full object-cover hover:scale-105 transition-custom">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full mr-3">生活</span>
+                            <span><i class="fa fa-calendar-o mr-1"></i> 2025-06-28</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 hover:text-primary transition-custom">
+                            <a href="#">中国科学技术大学学习生活体验</a>
+                        </h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">
+                            作为USTC的一名学生，我想分享一下在这里的学习和生活体验。从课程设置到科研氛围，从校园环境到社团活动，带你全面了解科大...
+                        </p>
+                        <a href="#" class="inline-flex items-center text-primary font-medium hover:underline">
+                            阅读全文 <i class="fa fa-long-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <!-- 文章卡片 3 -->
+                <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-custom">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/seed/article3/600/400" alt="算法学习笔记" class="w-full h-full object-cover hover:scale-105 transition-custom">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full mr-3">学习</span>
+                            <span><i class="fa fa-calendar-o mr-1"></i> 2025-06-10</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 hover:text-primary transition-custom">
+                            <a href="#">算法学习笔记：动态规划入门与实践</a>
+                        </h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">
+                            动态规划是解决复杂问题的一种重要方法，本文总结了动态规划的基本思想、解题步骤以及一些经典问题的解法，适合算法初学者参考...
+                        </p>
+                        <a href="#" class="inline-flex items-center text-primary font-medium hover:underline">
+                            阅读全文 <i class="fa fa-long-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        <!-- 分类和关于我 -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- 分类 -->
+            <section id="categories" class="lg:col-span-1">
+                <div class="bg-white rounded-xl shadow-md p-6 sticky top-24">
+                    <h2 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fa fa-folder-open text-primary mr-2"></i> 文章分类
+                    </h2>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#" class="flex justify-between items-center p-3 rounded-lg hover:bg-gray-100 transition-custom">
+                                <span class="font-medium">技术笔记</span>
+                                <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-sm">12</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex justify-between items-center p-3 rounded-lg hover:bg-gray-100 transition-custom">
+                                <span class="font-medium">学习心得</span>
+                                <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-sm">8</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex justify-between items-center p-3 rounded-lg hover:bg-gray-100 transition-custom">
+                                <span class="font-medium">校园生活</span>
+                                <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-sm">5</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex justify-between items-center p-3 rounded-lg hover:bg-gray-100 transition-custom">
+                                <span class="font-medium">项目分享</span>
+                                <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-sm">3</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex justify-between items-center p-3 rounded-lg hover:bg-gray-100 transition-custom">
+                                <span class="font-medium">阅读思考</span>
+                                <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-sm">6</span>
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <!-- 标签云 -->
+                    <h2 class="text-2xl font-bold mt-10 mb-6 flex items-center">
+                        <i class="fa fa-tags text-primary mr-2"></i> 标签云
+                    </h2>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="#" class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm hover:bg-blue-200 transition-custom">Python</a>
+                        <a href="#" class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm hover:bg-green-200 transition-custom">机器学习</a>
+                        <a href="#" class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm hover:bg-purple-200 transition-custom">算法</a>
+                        <a href="#" class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm hover:bg-yellow-200 transition-custom">USTC</a>
+                        <a href="#" class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm hover:bg-red-200 transition-custom">生活</a>
+                        <a href="#" class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm hover:bg-indigo-200 transition-custom">前端</a>
+                        <a href="#" class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-sm hover:bg-pink-200 transition-custom">阅读</a>
+                        <a href="#" class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm hover:bg-gray-200 transition-custom">科研</a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 关于我 -->
+            <section id="about" class="lg:col-span-2">
+                <div class="bg-white rounded-xl shadow-md p-8">
+                    <h2 class="text-3xl font-bold mb-6">关于我</h2>
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/3">
+                            <img src="https://picsum.photos/seed/about/400/500" alt="廖国栋的照片" class="rounded-lg shadow-md w-full h-auto">
+                        </div>
+                        <div class="md:w-2/3">
+                            <p class="text-lg mb-4">
+                                你好！我是廖国栋，目前就读于中国科学技术大学（USTC）。我对计算机科学、人工智能和数据分析有着浓厚的兴趣。
+                            </p>
+                            <p class="text-lg mb-4">
+                                在学习之余，我喜欢探索新技术，参与开源项目，并将自己的学习心得和技术笔记分享在这个博客上。希望能通过这个平台与更多志同道合的朋友交流学习。
+                            </p>
+                            <p class="text-lg mb-6">
+                                除了技术之外，我也喜欢阅读、运动和旅行。我相信多元化的兴趣爱好能帮助我更好地理解世界，也能为我的学习和研究带来新的灵感。
+                            </p>
+                            
+                            <div class="mb-6">
+                                <h3 class="text-xl font-bold mb-3">联系方式</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex items-center">
+                                        <i class="fa fa-envelope text-primary mr-3 w-5 text-center"></i>
+                                        <a href="mailto:gdliao@mail.ustc.edu.cn" class="hover:text-primary transition-custom">gdliao@mail.ustc.edu.cn</a>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fa fa-graduation-cap text-primary mr-3 w-5 text-center"></i>
+                                        <a href="https://www.ustc.edu.cn" target="_blank" class="hover:text-primary transition-custom">中国科学技术大学</a>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fa fa-github text-primary mr-3 w-5 text-center"></i>
+                                        <a href="#" target="_blank" class="hover:text-primary transition-custom">GitHub</a>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fa fa-linkedin text-primary mr-3 w-5 text-center"></i>
+                                        <a href="#" target="_blank" class="hover:text-primary transition-custom">LinkedIn</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-xl font-bold mb-3">我的技能</h3>
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="px-4 py-2 bg-gray-100 rounded-full">Python</span>
+                                    <span class="px-4 py-2 bg-gray-100 rounded-full">C++</span>
+                                    <span class="px-4 py-2 bg-gray-100 rounded-full">机器学习</span>
+                                    <span class="px-4 py-2 bg-gray-100 rounded-full">数据分析</span>
+                                    <span class="px-4 py-2 bg-gray-100 rounded-full">Web开发</span>
+                                    <span class="px-4 py-2 bg-gray-100 rounded-full">算法设计</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 订阅区域 -->
+    <section class="bg-gray-100 py-12 mt-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-4">订阅我的博客更新</h2>
+                <p class="text-gray-600 mb-8 text-lg">
+                    输入你的邮箱，第一时间获取我的最新文章和学习笔记
+                </p>
+                <form class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+                    <input 
+                        type="email" 
+                        placeholder="你的邮箱地址" 
+                        class="flex-grow px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                        required
+                    >
+                    <button type="submit" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-medium transition-custom whitespace-nowrap">
+                        立即订阅
+                    </button>
+                </form>
+                <p class="text-gray-500 text-sm mt-4">
+                    我尊重你的隐私，不会向第三方分享你的信息
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fa fa-book mr-2"></i> 国栋的博客
+                    </h3>
+                    <p class="text-gray-400 mb-4">
+                        分享学习心得、技术笔记和生活感悟的个人博客
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-custom text-xl">
+                            <i class="fa fa-github"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-custom text-xl">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-custom text-xl">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-custom text-xl">
+                            <i class="fa fa-weixin"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">快速链接</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-custom">首页</a></li>
+                        <li><a href="#articles" class="hover:text-white transition-custom">文章</a></li>
+                        <li><a href="#categories" class="hover:text-white transition-custom">分类</a></li>
+                        <li><a href="#about" class="hover:text-white transition-custom">关于我</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">联系我</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center">
+                            <i class="fa fa-envelope mr-2 w-5 text-center"></i>
+                            <a href="mailto:gdliao@mail.ustc.edu.cn" class="hover:text-white transition-custom">gdliao@mail.ustc.edu.cn</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-map-marker mr-2 w-5 text-center"></i>
+                            <span>中国科学技术大学</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-500">
+                <p>&copy; 2025 廖国栋的个人博客. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-custom z-50">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
     <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-
-    gtag('config', 'UA-111463289-1');
+        // 移动端菜单切换
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 返回顶部按钮
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // 关闭移动菜单（如果打开）
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
     </script>
 </body>
-
 </html>
